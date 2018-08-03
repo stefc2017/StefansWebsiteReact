@@ -1,9 +1,7 @@
-/**************************************
- * 
- **************************************/ 
 import { UPDATE_ACTIVE_ITEM } from "../constants/action-types";
+
 const initialState = {
-  activeItem: ''
+  activeItem: {'item': 'home'}
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
