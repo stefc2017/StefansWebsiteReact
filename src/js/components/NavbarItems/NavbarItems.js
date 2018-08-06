@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Menu, Segment } from 'semantic-ui-react'
 import { updateActiveItem } from "../../actions/index";
+import Body from "../Body/Body";
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
@@ -30,9 +31,7 @@ class NavbarItemsNoState extends Component {
           </Menu>
         </Segment>
   
-        <Segment>
-          <p> hello </p>
-        </Segment>
+        <Body></Body>
       </div>
     );
   }
