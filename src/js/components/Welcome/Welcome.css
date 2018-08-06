@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.welcomeContainer {
+background-color:#E1D089;
+margin-left: auto;
+margin-right: auto;
+}
+
+.welcomePaddingTop{
+    padding-top: 30px;
+}
+
+#welcomeTitle{
+    font-family: 'Bungee Inline', serif;
+    font-size: 45px;
+    text-align: center;
+}
+
+#welcomeParagraph{
+    font-style: italic;
+    font-family: 'Montserrat', serif;
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
