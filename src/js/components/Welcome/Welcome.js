@@ -10,7 +10,7 @@ class Welcome extends Component {
       <div className="ui grid container centered welcomeContainer">
           <div className="content welcomePaddingTop">
             <h1 id="welcomeTitle"> Welcome </h1>
-            <div id="welcomeParagraph" className="sub header">{welcomeParagraph}.</div>
+            <div id="welcomeParagraph" className="sub header">{welcomeParagraph}</div>
           </div>
       </div>
     );
