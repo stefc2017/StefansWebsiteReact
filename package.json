@@ -1,5 +1,5 @@
 {
-  "name": "StefansWebsiteReact",
+  "name": "stefanswebsitereact",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +7,7 @@
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
+    "react-vertical-timeline-component": "^2.1.3",
     "redux": "^4.0.0",
     "semantic-ui-react": "^0.82.1"
   },

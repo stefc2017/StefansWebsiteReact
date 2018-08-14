@@ -8,8 +8,6 @@ export default class Navbar extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    return (
-      <NavbarItems/>
-    )
+    return <NavbarItems/>
   }
 }
