@@ -68,9 +68,11 @@ class EducationNoState extends Component {
     }
     
     return (
-      <VerticalTimeline>
+      <div className="ui grid container educationContainer">
+      <VerticalTimeline id="educationSection">
         {educationComponents}
       </VerticalTimeline>
+      </div>
 
     );
   }
