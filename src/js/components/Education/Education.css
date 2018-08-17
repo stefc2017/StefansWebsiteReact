@@ -1,0 +1,22 @@
+.vertical-timeline-element-content{
+    width: 44%
+}
+
+@media only screen and (max-width: 1170px) {
+    i {
+    padding-left: 17%; 
+    padding-block-start: 17%
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    i {
+    padding-left: 25%; 
+    padding-block-start: 25%
+    }
+}
+
+.educationContainer {
+    background-color: #A7AFD4;
+    margin-top: -42px;
+    }
