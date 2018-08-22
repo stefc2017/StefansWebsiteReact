@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Welcome from '../Welcome/Welcome';
 import Education from '../Education/Education';
+import TechnicalSkills from '../TechnicalSkills/TechnicalSkills';
 
 class Body extends Component {
   
@@ -9,6 +10,7 @@ class Body extends Component {
         <div>
             <Welcome></Welcome>
             <Education></Education>
+            <TechnicalSkills></TechnicalSkills>
         </div>
     );
   }
