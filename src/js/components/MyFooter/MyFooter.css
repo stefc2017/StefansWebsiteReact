@@ -1,13 +1,24 @@
 .footer {
-    background-color: black;
+    background-color: #373a48;
     text-align: center;
     height: 50%;
 }
 
-.social-networks {
-  padding-left: 350px;
+.linkedIn {
+  font-size: 30px;
+  color: white;
 }
 
 .github {
-    padding-left:5em;
+    font-size: 30px;
+    margin-right: 40px; 
+    color: white; 
+}
+
+.linkedIn:hover{
+	color:#04669A;
+}
+
+.github:hover{
+	color: #040204;;
 }
