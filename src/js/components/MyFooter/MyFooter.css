@@ -1,0 +1,13 @@
+.footer {
+    background-color: black;
+    text-align: center;
+    height: 50%;
+}
+
+.social-networks {
+  padding-left: 350px;
+}
+
+.github {
+    padding-left:5em;
+}

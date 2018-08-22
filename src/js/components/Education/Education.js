@@ -43,9 +43,9 @@ class EducationNoState extends Component {
           date={`${item.educationDate}`}
           iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
           icon={<SchoolIcon />}>
-          <h3 className="vertical-timeline-element-title">{item.educationTitle}</h3>
-          <h4 className="vertical-timeline-element-subtitle">{item.educationLocation}</h4>
-          <p>
+          <h5 id="title" className="vertical-timeline-element-title">{item.educationTitle}</h5>
+          <h6 id="subtitle" className="vertical-timeline-element-subtitle">{item.educationLocation}</h6>
+          <p id="paragraph">
             {item.educationDescription}
           </p>
         </VerticalTimelineElement>
@@ -56,9 +56,9 @@ class EducationNoState extends Component {
           date={`${item.educationDate}`}
           iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
           icon={<WorkIcon />}>
-          <h3 className="vertical-timeline-element-title">{item.educationTitle}</h3>
-          <h4 className="vertical-timeline-element-subtitle">{item.educationLocation}</h4>
-          <p>
+          <h5 id="title" className="vertical-timeline-element-title">{item.educationTitle}</h5>
+          <h6 id="subtitle" className="vertical-timeline-element-subtitle">{item.educationLocation}</h6>
+          <p id="paragraph">
            {item.educationDescription}
           </p>
         </VerticalTimelineElement>

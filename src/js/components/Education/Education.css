@@ -20,3 +20,17 @@
     background-color: #A7AFD4;
     margin-top: -42px;
     }
+
+#title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#subtitle {
+    font-style: italic;
+    font-size: 16px;
+}
+
+#paragraph {
+    font-size: 14px;
+}
