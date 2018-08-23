@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Accordion, Icon } from 'semantic-ui-react'
 import { connect } from "react-redux"
 import { updateActiveTechSkillTab } from "../../actions/index"
+import ProgrammingLanguages from '../ProgrammingLanguages/ProgrammingLanguages'
+import TechAndFrameworks from '../TechAndFrameworks/TechAndFrameworks'
+import OperatingSystems from '../OperatingSystems/OperatingSystems'
+import Software from '../Software/Software'
 import "./TechnicalSkills.css"
 
 //To map a state to prop (to display)
@@ -28,31 +32,41 @@ class TechnicalSkillsNoState extends Component {
             <Accordion fluid styled>
                 <Accordion.Title active={this.props.activeTechSkillTab.index === 0} index={0} onClick={() => this.handleItemClick(0)}>
                 <Icon name='dropdown' />
-                    Dropdown1Title
+                    Programming Languages
                 </Accordion.Title>
                 <Accordion.Content active={this.props.activeTechSkillTab.index === 0}>
                 <p>
-                    Dropdown1Content
+                    <ProgrammingLanguages></ProgrammingLanguages>
                 </p>
                 </Accordion.Content>
 
                 <Accordion.Title active={this.props.activeTechSkillTab.index === 1} index={1} onClick={() => this.handleItemClick(1)}>
                 <Icon name='dropdown' />
-                    Dropdown2Title
+                    Technologies and Frameworks
                 </Accordion.Title>
                 <Accordion.Content active={this.props.activeTechSkillTab.index === 1}>
                 <p>
-                    Dropdown2Content
+                    <TechAndFrameworks> </TechAndFrameworks>
                 </p>
                 </Accordion.Content>
 
                 <Accordion.Title active={this.props.activeTechSkillTab.index === 2} index={2} onClick={() => this.handleItemClick(2)}>
                 <Icon name='dropdown' />
-                    Dropdown3Title
+                    Operating Systems
                 </Accordion.Title>
                 <Accordion.Content active={this.props.activeTechSkillTab.index === 2}>
                 <p>
-                    Dropdown3Content
+                    <OperatingSystems></OperatingSystems>
+                </p>
+                </Accordion.Content>
+
+                <Accordion.Title active={this.props.activeTechSkillTab.index === 3} index={3} onClick={() => this.handleItemClick(3)}>
+                <Icon name='dropdown' />
+                    Software
+                </Accordion.Title>
+                <Accordion.Content active={this.props.activeTechSkillTab.index === 2}>
+                <p>
+                    <Software></Software>
                 </p>
                 </Accordion.Content>
             </Accordion>

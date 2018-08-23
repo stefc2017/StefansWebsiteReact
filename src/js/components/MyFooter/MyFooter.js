@@ -11,7 +11,6 @@ class MyFooter extends Component{
                         <div className="row">
                             <a href="https://github.com/stefc2017" className="github"><FontAwesome name='github'/></a>
                             <a href="https://www.linkedin.com/in/StefanVCouture" className="linkedIn"><FontAwesome name='linkedin'/></a>
-                            {/* </div> */}
                         </div>
                     </div>
                     <div className="footer-copyright">
