@@ -1,77 +1,55 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { VerticalTimeline, VerticalTimelineElement}  from 'react-vertical-timeline-component'
 import TechnicalSkillsService from '../../services/TechnicalSkillsService'
-import { updateLanguageInfo } from "../../actions/index";
-import 'react-vertical-timeline-component/style.min.css'
+import { updateSoftwareInfo } from "../../actions/index";
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
-  return { languageInfo: state.languageInfo };
+  return { softwareInfo: state.softwareInfo };
 };
 
 //To update the state
 const mapDispatchToProps = dispatch => {
   return {
-    updateLanguageInfo: languageInfo => dispatch(updateEducationInfo(languageInfo))
+    updateSoftwareInfo: softwareInfo => dispatch(updateSoftwareInfo(softwareInfo))
   };
 };
 
-/* TODO: Need to do the render method */
 class SoftwareNoState extends Component {
   
   componentDidMount() {
     var technicalSkillsService = new TechnicalSkillsService();
-    technicalSkillsService.getTechnicalSkillsByLanguage().then((result) => {
-      this.props.updateLanguageInfo({'info': result});
+    technicalSkillsService.getTechnicalSkillsBySoftware().then((result) => {
+      this.props.updateSoftwareInfo({'info': result});
     });
   }
 
   render() {
-    let languageData = this.props.languageInfo.info.data;
-    let languageComponents = [];
+    let softwareData = this.props.softwareInfo.info.data;
+    console.log(softwareData);
+    let softwares = [];
 
-    if(educationData != null){
-      educationData.forEach(function(item) {
-        let verticalTimelineElement = null;
+    if(softwareData != null){
+        softwareData.forEach(function(item) {
+        let software = null;
         
-        if(item.educationType === "School"){
-          verticalTimelineElement = <VerticalTimelineElement key={`${item.educationId}`}
-          className="vertical-timeline-element--education"
-          date={`${item.educationDate}`}
-          iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-          icon={<SchoolIcon />}>
-          <h5 id="title" className="vertical-timeline-element-title">{item.educationTitle}</h5>
-          <h6 id="subtitle" className="vertical-timeline-element-subtitle">{item.educationLocation}</h6>
-          <p id="paragraph">
-            {item.educationDescription}
-          </p>
-        </VerticalTimelineElement>
-        }
-        else if(item.educationType === "Work"){
-          verticalTimelineElement = <VerticalTimelineElement key={`${item.educationId}`}
-          className="vertical-timeline-element-work"
-          date={`${item.educationDate}`}
-          iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-          icon={<WorkIcon />}>
-          <h5 id="title" className="vertical-timeline-element-title">{item.educationTitle}</h5>
-          <h6 id="subtitle" className="vertical-timeline-element-subtitle">{item.educationLocation}</h6>
-          <p id="paragraph">
-           {item.educationDescription}
-          </p>
-        </VerticalTimelineElement>
-        }
-        educationComponents.push(verticalTimelineElement);
+        software = <div className="col-md-6" key={`${item.technicalSkillName}`}>
+          <span className="progress-label">{item.technicalSkillName}</span>
+          <div className="progress">
+              <div id="{item.technicalSkillName}"
+                  aria-valuenow="{item.technicalSkillProficiency}" aria-valuemin="0" aria-valuemax="100">
+              </div>
+          </div>
+        </div>
+
+        softwares.push(software);
       });
     }
     
     return (
-      <div className="ui grid container educationContainer">
-      <VerticalTimeline id="educationSection">
-        {educationComponents}
-      </VerticalTimeline>
+      <div>
+          {softwares}
       </div>
-
     );
   }
 }

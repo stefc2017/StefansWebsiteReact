@@ -34,40 +34,32 @@ class TechnicalSkillsNoState extends Component {
                 <Icon name='dropdown' />
                     Programming Languages
                 </Accordion.Title>
-                <Accordion.Content active={this.props.activeTechSkillTab.index === 0}>
-                <p>
+                <Accordion.Content className="accordionContent" active={this.props.activeTechSkillTab.index === 0}>
                     <ProgrammingLanguages></ProgrammingLanguages>
-                </p>
                 </Accordion.Content>
 
                 <Accordion.Title active={this.props.activeTechSkillTab.index === 1} index={1} onClick={() => this.handleItemClick(1)}>
                 <Icon name='dropdown' />
                     Technologies and Frameworks
                 </Accordion.Title>
-                <Accordion.Content active={this.props.activeTechSkillTab.index === 1}>
-                <p>
+                <Accordion.Content className="accordionContent" active={this.props.activeTechSkillTab.index === 1}>
                     <TechAndFrameworks> </TechAndFrameworks>
-                </p>
                 </Accordion.Content>
 
                 <Accordion.Title active={this.props.activeTechSkillTab.index === 2} index={2} onClick={() => this.handleItemClick(2)}>
                 <Icon name='dropdown' />
                     Operating Systems
                 </Accordion.Title>
-                <Accordion.Content active={this.props.activeTechSkillTab.index === 2}>
-                <p>
+                <Accordion.Content className="accordionContent" active={this.props.activeTechSkillTab.index === 2}>
                     <OperatingSystems></OperatingSystems>
-                </p>
                 </Accordion.Content>
 
                 <Accordion.Title active={this.props.activeTechSkillTab.index === 3} index={3} onClick={() => this.handleItemClick(3)}>
                 <Icon name='dropdown' />
                     Software
                 </Accordion.Title>
-                <Accordion.Content active={this.props.activeTechSkillTab.index === 2}>
-                <p>
+                <Accordion.Content className="accordionContent" active={this.props.activeTechSkillTab.index === 3}>
                     <Software></Software>
-                </p>
                 </Accordion.Content>
             </Accordion>
         </div>
