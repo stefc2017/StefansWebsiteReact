@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import TechnicalSkillsService from '../../services/TechnicalSkillsService'
 import { updateTechNFrameworkInfo } from "../../actions/index";
+import { Grid, Progress } from 'semantic-ui-react'
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
@@ -24,31 +25,44 @@ class TechAndFrameworksNoState extends Component {
     });
   }
 
-  render() {
+  createGrid() {
+    let grid = []
     let techNFrameworkData = this.props.techNFrameworkInfo.info.data;
-    let techNFrameworks = [];
+    let currentIndex = 0;
+    let numOfRows = 0;
+    let dataLength = 0;
 
     if(techNFrameworkData != null){
-        techNFrameworkData.forEach(function(item) {
-        let techFramework = null;
-        
-        techFramework = <div className="col-md-6" key={`${item.technicalSkillName}`}>
-          <span className="progress-label">{item.technicalSkillName}</span>
-          <div className="progress">
-              <div id="{item.technicalSkillName}"
-                  aria-valuenow="{item.technicalSkillProficiency}" aria-valuemin="0" aria-valuemax="100">
-              </div>
-          </div>
-        </div>
-
-        techNFrameworks.push(techFramework);
-      });
+      dataLength = techNFrameworkData.length;
+      numOfRows = Math.ceil(techNFrameworkData.length / 2);
+      
+      // Outer loop to create rows
+      for (let i = 0; i < numOfRows; i++) {
+        let columns = []
+        //Inner loop to create columns
+        for (let j = 0; j < 2; j++) {
+          if(currentIndex >= dataLength){
+            break;
+          }
+          columns.push(<Grid.Column width={8} key={techNFrameworkData[currentIndex].technicalSkillId}>
+            <span className="progress-label">{techNFrameworkData[currentIndex].technicalSkillName}</span>
+            <Progress percent={techNFrameworkData.technicalSkillProficiency} color='green' size='small'/>
+          </Grid.Column>);
+          currentIndex++;
+        }
+        //Create the parent and add the children
+        grid.push(<Grid.Row key={i}>{columns}</Grid.Row>)
+      }
     }
     
+    return grid
+  }
+
+  render() {    
     return (
-      <div className="row">
-          {techNFrameworks}
-      </div>
+      <Grid>
+        {this.createGrid()}
+      </Grid>
     );
   }
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 import TechnicalSkillsService from '../../services/TechnicalSkillsService'
 import { updateLanguageInfo } from "../../actions/index"
+import { Grid, Progress } from 'semantic-ui-react'
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
@@ -24,31 +25,44 @@ class ProgrammingLanguagesNoState extends Component {
     });
   }
 
-  render() {
+  createGrid() {
+    let grid = []
     let languageData = this.props.languageInfo.info.data;
-    let programmingLanguages = [];
+    let currentIndex = 0;
+    let numOfRows = 0;
+    let dataLength = 0;
 
     if(languageData != null){
-      languageData.forEach(function(item) {
-        let programmingLanguage = null;
-        
-        programmingLanguage = <div className="col-md-6" key={`${item.technicalSkillName}`}>
-          <span className="progress-label">{item.technicalSkillName}</span>
-          <div className="progress">
-              <div id="{item.technicalSkillName}"
-                  aria-valuenow="{item.technicalSkillProficiency}" aria-valuemin="0" aria-valuemax="100">
-              </div>
-          </div>
-        </div>
-
-        programmingLanguages.push(programmingLanguage);
-      });
+      dataLength = languageData.length;
+      numOfRows = Math.ceil(languageData.length / 2);
+      
+      // Outer loop to create rows
+      for (let i = 0; i < numOfRows; i++) {
+        let columns = []
+        //Inner loop to create columns
+        for (let j = 0; j < 2; j++) {
+          if(currentIndex >= dataLength){
+            break;
+          }
+          columns.push(<Grid.Column width={8} key={languageData[currentIndex].technicalSkillId}>
+            <span className="progress-label">{languageData[currentIndex].technicalSkillName}</span>
+            <Progress percent={languageData.technicalSkillProficiency} color='green' size='small'/>
+          </Grid.Column>);
+          currentIndex++;
+        }
+        //Create the parent and add the children
+        grid.push(<Grid.Row key={i}>{columns}</Grid.Row>)
+      }
     }
     
+    return grid
+  }
+
+  render() {    
     return (
-      <div className="row">
-          {programmingLanguages}
-      </div>
+      <Grid>
+        {this.createGrid()}
+      </Grid>
     );
   }
 }
