@@ -6,3 +6,12 @@
 .accordionContent {
     padding-bottom: 0px !important;
 }
+
+#row {
+    padding: 0px;
+    margin: 5px;
+}
+
+#grid {
+    margin-bottom: 10px;
+}

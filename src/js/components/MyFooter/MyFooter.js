@@ -8,7 +8,7 @@ class MyFooter extends Component{
             <div className="topFooter">
                 <footer className="page-footer footer">
                     <div className="container">
-                        <div className="row">
+                        <div>
                             <a href="https://github.com/stefc2017" className="github"><FontAwesome name='github'/></a>
                             <a href="https://www.linkedin.com/in/StefanVCouture" className="linkedIn"><FontAwesome name='linkedin'/></a>
                         </div>

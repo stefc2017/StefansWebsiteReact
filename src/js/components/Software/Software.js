@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import TechnicalSkillsService from '../../services/TechnicalSkillsService'
 import { updateSoftwareInfo } from "../../actions/index";
-import { Grid, Progress } from 'semantic-ui-react'
+import { Progress } from 'reactstrap'
+import { Grid } from 'semantic-ui-react'
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
@@ -46,12 +47,12 @@ class SoftwareNoState extends Component {
           }
           columns.push(<Grid.Column width={8} key={softwareData[currentIndex].technicalSkillId}>
             <span className="progress-label">{softwareData[currentIndex].technicalSkillName}</span>
-            <Progress percent={softwareData.technicalSkillProficiency} color='green' size='small'/>
+            <Progress striped color="success" value={softwareData[currentIndex].technicalSkillProficiency} />
           </Grid.Column>);
           currentIndex++;
         }
         //Create the parent and add the children
-        grid.push(<Grid.Row key={i}>{columns}</Grid.Row>)
+        grid.push(<Grid.Row id="row" key={i}>{columns}</Grid.Row>)
       }
     }
     
@@ -60,7 +61,7 @@ class SoftwareNoState extends Component {
 
   render() {    
     return (
-      <Grid>
+      <Grid id="grid">
         {this.createGrid()}
       </Grid>
     );
