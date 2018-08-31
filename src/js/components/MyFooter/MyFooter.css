@@ -20,5 +20,9 @@
 }
 
 .github:hover{
-	color: #040204;;
+	color: #040204;
+}
+
+.topFooter{
+    padding-top: 16px;
 }

@@ -40,4 +40,44 @@ app.get('/api/education', (req, res) => {
     });
 });
 
+app.get('/api/technicalskills/language', (req, res) => {
+    let sql = 'SELECT * FROM TechnicalSkill WHERE technicalSkillCategory = "ProgrammingLanguage" ORDER BY technicalSkillProficiency DESC';
+    
+    let query = connection.query(sql, (err, result)=> {
+        if( err ) throw err;
+        console.log(result);
+        res.send(result);
+    });
+});
+
+app.get('/api/technicalskills/framework', (req, res) => {
+    let sql = 'SELECT * FROM TechnicalSkill WHERE technicalSkillCategory = "Framework" ORDER BY technicalSkillProficiency DESC';
+    
+    let query = connection.query(sql, (err, result)=> {
+        if( err ) throw err;
+        console.log(result);
+        res.send(result);
+    });
+});
+
+app.get('/api/technicalskills/operatingSystem', (req, res) => {
+    let sql = 'SELECT * FROM TechnicalSkill WHERE technicalSkillCategory = "OperatingSystem" ORDER BY technicalSkillProficiency DESC';
+    
+    let query = connection.query(sql, (err, result)=> {
+        if( err ) throw err;
+        console.log(result);
+        res.send(result);
+    });
+});
+
+app.get('/api/technicalskills/software', (req, res) => {
+    let sql = 'SELECT * FROM TechnicalSkill WHERE technicalSkillCategory = "Software" ORDER BY technicalSkillProficiency DESC';
+    
+    let query = connection.query(sql, (err, result)=> {
+        if( err ) throw err;
+        console.log(result);
+        res.send(result);
+    });
+});
+
 app.listen(9000, '0.0.0.0', () => console.log('Listening on port 9000!'));

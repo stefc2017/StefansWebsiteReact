@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
+import React, { Component } from 'react'
+import { connect } from "react-redux"
 import { Menu, Segment } from 'semantic-ui-react'
-import { updateActiveItem } from "../../actions/index";
-import Body from "../Body/Body";
-import MyFooter from "../MyFooter/MyFooter";
+import { updateActiveItem } from "../../actions/index"
+import Body from "../Body/Body"
+import MyFooter from "../MyFooter/MyFooter"
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
