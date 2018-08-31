@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import TechnicalSkillsService from '../../services/TechnicalSkillsService'
 import { updateTechNFrameworkInfo } from "../../actions/index";
 import { Progress } from 'reactstrap'
 import { Grid } from 'semantic-ui-react'
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
-  return { techNFrameworkInfo: state.techNFrameworkInfo };
+  return { techNFrameworkInfo: state.techNFrameworkInfo, technicalSkillsService: state.technicalSkillsService };
 };
 
 //To update the state
@@ -20,8 +19,7 @@ const mapDispatchToProps = dispatch => {
 class TechAndFrameworksNoState extends Component {
   
   componentDidMount() {
-    var technicalSkillsService = new TechnicalSkillsService();
-    technicalSkillsService.getTechnicalSkillsByFramework().then((result) => {
+    this.props.technicalSkillsService.getTechnicalSkillsByFramework().then((result) => {
       this.props.updateTechNFrameworkInfo({'info': result});
     });
   }
@@ -47,7 +45,7 @@ class TechAndFrameworksNoState extends Component {
           }
           columns.push(<Grid.Column width={8} key={techNFrameworkData[currentIndex].technicalSkillId}>
             <span className="progress-label">{techNFrameworkData[currentIndex].technicalSkillName}</span>
-            <Progress striped color="success" value={techNFrameworkData[currentIndex].technicalSkillProficiency} />
+            <Progress striped color={this.props.technicalSkillsService.setProgressBarColor(techNFrameworkData[currentIndex].technicalSkillProficiency)} value={techNFrameworkData[currentIndex].technicalSkillProficiency} />
           </Grid.Column>);
           currentIndex++;
         }

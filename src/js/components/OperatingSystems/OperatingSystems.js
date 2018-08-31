@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import TechnicalSkillsService from '../../services/TechnicalSkillsService'
 import { updateOSInfo } from "../../actions/index";
 import { Progress } from 'reactstrap'
 import { Grid } from 'semantic-ui-react'
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
-  return { osInfo: state.osInfo };
+  return { osInfo: state.osInfo, technicalSkillsService: state.technicalSkillsService };
 };
 
 //To update the state
@@ -20,8 +19,7 @@ const mapDispatchToProps = dispatch => {
 class OperatingSystemsNoState extends Component {
   
   componentDidMount() {
-    var technicalSkillsService = new TechnicalSkillsService();
-    technicalSkillsService.getTechnicalSkillsByOperatingSystem().then((result) => {
+    this.props.technicalSkillsService.getTechnicalSkillsByOperatingSystem().then((result) => {
       this.props.updateOSInfo({'info': result});
     });
   }
@@ -47,7 +45,7 @@ class OperatingSystemsNoState extends Component {
           }
           columns.push(<Grid.Column width={8} key={osData[currentIndex].technicalSkillId}>
             <span className="progress-label">{osData[currentIndex].technicalSkillName}</span>
-            <Progress striped color="success" value={osData[currentIndex].technicalSkillProficiency} />
+            <Progress striped color={this.props.technicalSkillsService.setProgressBarColor(osData[currentIndex].technicalSkillProficiency)} value={osData[currentIndex].technicalSkillProficiency} />
           </Grid.Column>);
           currentIndex++;
         }

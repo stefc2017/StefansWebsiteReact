@@ -21,6 +21,21 @@ class TechnicalSkillsService{
         return axios.get('http://ec2-18-222-216-18.us-east-2.compute.amazonaws.com:9000/api/technicalskills/software')
     }
     
+    setProgressBarColor(proficiencyLevel){
+        var progressBarColor;
+    
+        if(proficiencyLevel >= 70){
+          progressBarColor = "success";
+        }
+        else if(proficiencyLevel >= 50 && proficiencyLevel < 70){
+          progressBarColor = "info";
+        }
+        else{ //proficiencyLevel <= 49
+          progressBarColor = "warning";
+        }
+    
+        return progressBarColor;
+    }
 }
 
 export default TechnicalSkillsService;

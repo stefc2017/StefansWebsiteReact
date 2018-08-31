@@ -5,6 +5,7 @@ import { UPDATE_LANGUAGE_INFO } from "../constants/action-types";
 import { UPDATE_TECHNFRAMEWORK_INFO } from "../constants/action-types";
 import { UPDATE_OS_INFO } from "../constants/action-types";
 import { UPDATE_SOFTWARE_INFO } from "../constants/action-types";
+import TechnicalSkillsService from "../services/TechnicalSkillsService";
 
 const initialState = {
   activeItem: {'item': 'home'},
@@ -13,7 +14,8 @@ const initialState = {
   languageInfo: {'info': ''},
   techNFrameworkInfo: {'info': ''},
   osInfo: {'info': ''},
-  softwareInfo: {'info': ''}
+  softwareInfo: {'info': ''},
+  technicalSkillsService: new TechnicalSkillsService()
 };
 
 const rootReducer = (state = initialState, action) => {

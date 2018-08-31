@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
-import TechnicalSkillsService from '../../services/TechnicalSkillsService'
 import { updateLanguageInfo } from "../../actions/index"
 import { Progress } from 'reactstrap'
 import { Grid } from 'semantic-ui-react'
 
-
 //To map a state to prop (to display)
 const mapStateToProps = state => {
-  return { languageInfo: state.languageInfo };
+  return { languageInfo: state.languageInfo, technicalSkillsService: state.technicalSkillsService };
 };
 
 //To update the state
@@ -21,9 +19,8 @@ const mapDispatchToProps = dispatch => {
 class ProgrammingLanguagesNoState extends Component {
   
   componentDidMount() {
-    var technicalSkillsService = new TechnicalSkillsService();
-    technicalSkillsService.getTechnicalSkillsByLanguage().then((result) => {
-      this.props.updateLanguageInfo({'info': result});
+    this.props.technicalSkillsService.getTechnicalSkillsByLanguage().then((result) => {
+       this.props.updateLanguageInfo({'info': result});
     });
   }
 
@@ -48,7 +45,7 @@ class ProgrammingLanguagesNoState extends Component {
           }
           columns.push(<Grid.Column width={8} key={languageData[currentIndex].technicalSkillId}>
             <span className="progress-label">{languageData[currentIndex].technicalSkillName}</span>
-            <Progress striped color="success" value={languageData[currentIndex].technicalSkillProficiency} />
+            <Progress striped color={this.props.technicalSkillsService.setProgressBarColor(languageData[currentIndex].technicalSkillProficiency)} value={languageData[currentIndex].technicalSkillProficiency} />
           </Grid.Column>);
           currentIndex++;
         }
