@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Welcome from '../Welcome/Welcome';
 import Education from '../Education/Education';
-import TechnicalSkills from '../TechnicalSkills/TechnicalSkills';
+import PersonalProjects from '../PersonalProjects/PersonalProjects';
 
 class Body extends Component {
   
@@ -10,7 +10,7 @@ class Body extends Component {
         <div>
             <Welcome></Welcome>
             <Education></Education>
-            <TechnicalSkills></TechnicalSkills>
+            <PersonalProjects></PersonalProjects>
         </div>
     );
   }
