@@ -15,7 +15,7 @@ class MyFooter extends Component{
                     </div>
                     <div className="footer-copyright">
                         <div className="container">
-                        Copyright © 2018 Stefan Couture. All rights reserved
+                        Copyright © 2019 Stefan Couture. All rights reserved
                         </div>
                     </div>
                 </footer>
