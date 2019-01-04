@@ -1,11 +1,11 @@
-.vertical-timeline-element-content{
-    width: 44%
-}
-
 @media only screen and (max-width: 1170px) {
     i {
     padding-left: 17%; 
     padding-block-start: 17%
+    }
+
+    .vertical-timeline-element-content{
+        width: 70%
     }
 }
 
@@ -13,6 +13,10 @@
     i {
     padding-left: 25%; 
     padding-block-start: 25%
+    }
+
+    .vertical-timeline-element-content{
+        width: 44%
     }
 }
 
