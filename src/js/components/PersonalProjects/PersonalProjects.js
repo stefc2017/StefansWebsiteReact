@@ -38,9 +38,9 @@ class PersonalProjectsNoState extends Component {
 
         if(repos){
             listItems = repos.map((repo) =>  
-                <div>
-                    <a class ="bigFont" key={repo.id} href={repo.html_url}>{repo.name}</a>
-                    <h5 class="center">{repo.description ? repo.description : 'No description'}</h5>
+                <div key={repo.id}>
+                    <a className ="bigFont" href={repo.html_url}>{repo.name}</a>
+                    <h5 className ="center">{repo.description ? repo.description : 'No description'}</h5>
                     <h5 align="center"><b>Primary language used: {repo.language}</b></h5>
                     <br></br>
                 </div>
