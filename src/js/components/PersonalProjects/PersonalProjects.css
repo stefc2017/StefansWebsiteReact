@@ -1,17 +1,28 @@
-.techSkillsContainer {
-    background-color: #E1D089;
-    margin-top: -42px;
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.personalProjectsPaddingTop{
+    padding-top: 30px;
 }
 
-.accordionContent {
-    padding-bottom: 0px !important;
+.personalProjectsContainer {
+    background-color:#E1D089;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#row {
-    padding: 0px;
-    margin: 5px;
+#personalProjectsTitle{
+    font-family: 'Bungee Inline', serif;
+    font-size: 45px;
+    text-align: center;
 }
 
-#grid {
-    margin-bottom: 10px;
+.bigFont{
+    font-size: 150%
 }
+
+.center{
+    font-style: italic;
+    text-align: center;
+}
+

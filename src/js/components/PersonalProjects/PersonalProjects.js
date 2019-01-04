@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { updateGithubRepos } from "../../actions/index"
 import  GithubService  from "../../services/GithubService"
-//import "./TechnicalSkills.css"
+import "./PersonalProjects.css"
 
 //To map a state to prop (to display)
 const mapStateToProps = state => {
@@ -40,21 +40,24 @@ class PersonalProjectsNoState extends Component {
             console.log(repos)
             listItems = repos.map((repo) =>  
                 <div>
-                    <a key={repo.id} href={repo.html_url}>{repo.name}</a> 
+                    <a class ="bigFont" key={repo.id} href={repo.html_url}>{repo.name}</a>
+                    <h5 class="center">{repo.description ? repo.description : 'No description'}</h5>
+                    <h5 align="center"><b>Primary language used: {repo.language}</b></h5>
                     <br></br>
                 </div>
                 );
-
-    return (
-      <div>
-      {listItems}
-      </div>
-    );
         }
 
-
-
-    return null
+    return (
+        <div className="ui grid container centered personalProjectsContainer">
+            <div className="content personalProjectsPaddingTop">
+                <h1 id="personalProjectsTitle"> Projects </h1>
+                {listItems}
+            </div>
+            
+            
+        </div>
+    );
   }
 }
 
