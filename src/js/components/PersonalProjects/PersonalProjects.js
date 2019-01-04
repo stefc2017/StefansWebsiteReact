@@ -27,16 +27,32 @@ class PersonalProjectsNoState extends Component {
     
     render() {
         var repos = ""
+        var listItems = ""
+
         if(this.props.githubRepos.repos === ''){
             repos = ""
         }
         else{
-            repos = this.props.githubRepos.repos
+            repos = this.props.githubRepos.repos.data
         }
 
         if(repos){
-            console.log("here: " + repos)
+            console.log(repos)
+            listItems = repos.map((repo) =>  
+                <div>
+                    <a key={repo.id} href={repo.html_url}>{repo.name}</a> 
+                    <br></br>
+                </div>
+                );
+
+    return (
+      <div>
+      {listItems}
+      </div>
+    );
         }
+
+
 
     return null
   }
