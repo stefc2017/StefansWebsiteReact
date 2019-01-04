@@ -37,7 +37,6 @@ class PersonalProjectsNoState extends Component {
         }
 
         if(repos){
-            console.log(repos)
             listItems = repos.map((repo) =>  
                 <div>
                     <a class ="bigFont" key={repo.id} href={repo.html_url}>{repo.name}</a>
