@@ -53,8 +53,6 @@ class PersonalProjectsNoState extends Component {
                 <h1 id="personalProjectsTitle"> Projects </h1>
                 {listItems}
             </div>
-            
-            
         </div>
     );
   }
